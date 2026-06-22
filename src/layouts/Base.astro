@@ -1,4 +1,5 @@
 ---
+import ClientRouter from 'astro/components/ClientRouter.astro';
 import { getLangFromUrl } from '../i18n/ui';
 import gbFlag from '../assets/images/gb.svg?raw';
 import esFlag from '../assets/images/es.svg?raw';
@@ -26,9 +27,24 @@ const switchPath = (target: string) => Astro.url.pathname.replace(`/${lang}/`, `
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Qwitcher+Grypen&display=swap" rel="stylesheet" />
     <title>{title}</title>
+    <ClientRouter />
   </head>
   <style is:global>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    ::view-transition-old(root) {
+      animation: 450ms ease both page-out;
+    }
+    ::view-transition-new(root) {
+      animation: 450ms ease both page-in;
+    }
+    @keyframes page-out {
+      to { opacity: 0; transform: translateY(-10px); }
+    }
+    @keyframes page-in {
+      from { opacity: 0; transform: translateY(10px); }
+    }
+
     body {
       background-color: #faf9f7;
       color: #2c2c2c;
@@ -156,18 +172,23 @@ const switchPath = (target: string) => Astro.url.pathname.replace(`/${lang}/`, `
     </div>
 
     <script>
-      const switcher = document.getElementById('lang-switcher')!;
-      const trigger = document.getElementById('lang-trigger')!;
+      function initSwitcher() {
+        const switcher = document.getElementById('lang-switcher');
+        const trigger  = document.getElementById('lang-trigger');
+        if (!switcher || !trigger) return;
 
-      trigger.addEventListener('click', () => {
-        switcher.classList.toggle('open');
-      });
+        trigger.addEventListener('click', () => {
+          switcher.classList.toggle('open');
+        });
 
-      document.addEventListener('click', (e) => {
-        if (!switcher.contains(e.target as Node)) {
-          switcher.classList.remove('open');
-        }
-      });
+        document.addEventListener('click', (e) => {
+          if (!switcher.contains(e.target as Node)) {
+            switcher.classList.remove('open');
+          }
+        });
+      }
+
+      document.addEventListener('astro:page-load', initSwitcher);
     </script>
   </body>
 </html>

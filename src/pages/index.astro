@@ -1,5 +1,6 @@
 ---
 import { languages } from '../i18n/ui';
+import ClientRouter from 'astro/components/ClientRouter.astro';
 ---
 
 <!doctype html>
@@ -12,12 +13,16 @@ import { languages } from '../i18n/ui';
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Qwitcher+Grypen&display=swap" rel="stylesheet" />
+    <ClientRouter />
   </head>
   <body>
+    <canvas id="petals" aria-hidden="true"></canvas>
+    <div class="glow" id="glow" aria-hidden="true"></div>
+
     <main>
       <div class="hero">
-        <h1>Thorbjørn & Lorena</h1>
-        <p class="tagline">Please select your language</p>
+        <h1 id="names">Thorbjørn & Lorena</h1>
+        <p class="tagline" id="tagline">Please select your language</p>
       </div>
       <nav class="lang-selector">
         {Object.entries(languages).map(([code, label]) => (
@@ -28,11 +33,146 @@ import { languages } from '../i18n/ui';
   </body>
 </html>
 
+<script>
+  // ── Falling petals ────────────────────────────────────────────
+  const canvas = document.getElementById('petals') as HTMLCanvasElement;
+  const ctx    = canvas.getContext('2d')!;
+  let active   = false;
+
+  function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+  resize();
+  window.addEventListener('resize', resize);
+
+  const COLORS: [number, number, number][] = [
+    [200, 148,  82],  // warm amber/gold
+    [216, 148, 148],  // soft rose
+    [196, 172, 138],  // champagne
+    [224, 176, 120],  // honey
+  ];
+
+  interface Petal {
+    x: number; y: number;
+    rx: number; ry: number;
+    rot: number; rotSpeed: number;
+    vy: number;
+    swayAmp: number; swayPhase: number; swaySpeed: number;
+    maxAlpha: number;
+    r: number; g: number; b: number;
+  }
+
+  const petals: Petal[] = [];
+  let lastSpawn = 0;
+
+  function spawnPetal() {
+    const [r, g, b] = COLORS[Math.floor(Math.random() * COLORS.length)];
+    petals.push({
+      x:         Math.random() * canvas.width,
+      y:         -14,
+      rx:        Math.random() * 1.5 + 1.5,   // 1.5–3 px wide
+      ry:        Math.random() * 3 + 4,      // 4–7 px tall
+      rot:       Math.random() * Math.PI * 2,
+      rotSpeed:  (Math.random() - 0.5) * 0.032,
+      vy:        Math.random() * 0.55 + 0.65, // 0.65–1.2 px/frame
+      swayAmp:   Math.random() * 28 + 14,
+      swayPhase: Math.random() * Math.PI * 2,
+      swaySpeed: Math.random() * 0.014 + 0.007,
+      maxAlpha:  Math.random() * 0.30 + 0.58, // 0.58–0.88
+      r, g, b,
+    });
+  }
+
+  function drawPetals(now: number) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    if (active) {
+      if (now - lastSpawn > 280) { spawnPetal(); lastSpawn = now; }
+
+      for (let i = petals.length - 1; i >= 0; i--) {
+        const p = petals[i];
+        p.y          += p.vy;
+        p.rot        += p.rotSpeed;
+        p.swayPhase  += p.swaySpeed;
+
+        const ax = p.x + p.swayAmp * Math.sin(p.swayPhase);
+
+        const fi = canvas.height * 0.07;
+        const fo = canvas.height * 0.10;
+        let a: number;
+        if      (p.y < fi)                      a = p.maxAlpha * (p.y / fi);
+        else if (p.y > canvas.height - fo)      a = p.maxAlpha * (canvas.height - p.y) / fo;
+        else                                     a = p.maxAlpha;
+
+        if (p.y > canvas.height + 14) { petals.splice(i, 1); continue; }
+
+        ctx.save();
+        ctx.translate(ax, p.y);
+        ctx.rotate(p.rot);
+        ctx.beginPath();
+        ctx.ellipse(0, 0, p.rx, p.ry, 0, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${p.r},${p.g},${p.b},${Math.max(0, a).toFixed(3)})`;
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    requestAnimationFrame(drawPetals);
+  }
+  requestAnimationFrame(drawPetals);
+
+  // ── Arrival sequence ──────────────────────────────────────────
+  window.addEventListener('load', () => {
+    const glow    = document.getElementById('glow')!;
+    const names   = document.getElementById('names')!;
+    const tagline = document.getElementById('tagline')!;
+    const btns    = document.querySelectorAll<HTMLElement>('.lang-btn');
+
+    // Glow + petals start immediately
+    glow.classList.add('active');
+    active = true;
+    setTimeout(() => glow.classList.add('fading'), 2600);
+
+    // Names: drift up + scale
+    setTimeout(() => names.classList.add('visible'), 1200);
+
+    // Tagline + buttons stagger in
+    setTimeout(() => tagline.classList.add('visible'), 2100);
+    btns.forEach((btn, i) => setTimeout(() => btn.classList.add('visible'), 2700 + i * 300));
+
+    // Tagline cycles through the three languages
+    const phrases = ['Please select your language', 'Elige tu idioma', 'Vælg dit sprog'];
+    let idx = 0;
+    let cycling = true;
+    btns.forEach(b => b.addEventListener('click', () => { cycling = false; }));
+
+    setTimeout(() => {
+      setInterval(() => {
+        if (!cycling) return;
+        idx = (idx + 1) % phrases.length;
+        tagline.style.transition = 'opacity 400ms ease';
+        tagline.style.opacity    = '0';
+        setTimeout(() => {
+          tagline.textContent   = phrases[idx];
+          tagline.style.opacity = '1';
+        }, 420);
+      }, 2400);
+    }, 3600);
+  });
+</script>
+
 <style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  ::view-transition-old(root) {
+    animation: 450ms ease both page-out;
+  }
+  ::view-transition-new(root) {
+    animation: 450ms ease both page-in;
+  }
+  @keyframes page-out {
+    to { opacity: 0; transform: translateY(-10px); }
+  }
+  @keyframes page-in {
+    from { opacity: 0; transform: translateY(10px); }
   }
 
   body {
@@ -45,7 +185,47 @@ import { languages } from '../i18n/ui';
     color: #2c2c2c;
   }
 
+  /* ── Canvas ─────────────────────────────────────────────── */
+  #petals {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── Glow ───────────────────────────────────────────────── */
+  .glow {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(
+      circle,
+      rgba(240, 200,  90, 0.70) 0%,
+      rgba(230, 180,  65, 0.35) 28%,
+      rgba(220, 160,  50, 0.12) 55%,
+      transparent 75%
+    );
+    transition:
+      width  1400ms cubic-bezier(0.16, 1, 0.3, 1),
+      height 1400ms cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 2000ms ease;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .glow.active { width: 920px; height: 920px; opacity: 1; }
+  .glow.fading { opacity: 0; }
+
+  /* ── Main content ───────────────────────────────────────── */
   main {
+    position: relative;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -61,21 +241,32 @@ import { languages } from '../i18n/ui';
     gap: 1rem;
   }
 
+  /* ── Names ──────────────────────────────────────────────── */
   h1 {
     font-family: 'Qwitcher Grypen', cursive;
     font-size: clamp(3rem, 10vw, 5.5rem);
     font-weight: 400;
     color: #2c2c2c;
     line-height: 1.1;
+    opacity: 0;
+    transform: translateY(30px) scale(0.94);
+    transition: opacity 1100ms ease, transform 1100ms cubic-bezier(0.16, 1, 0.3, 1);
   }
+  h1.visible { opacity: 1; transform: translateY(0) scale(1); }
 
+  /* ── Tagline ────────────────────────────────────────────── */
   .tagline {
     font-size: 0.8rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: #999;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 900ms ease, transform 900ms ease;
   }
+  .tagline.visible { opacity: 1; transform: translateY(0); }
 
+  /* ── Language buttons ───────────────────────────────────── */
   .lang-selector {
     display: flex;
     flex-direction: column;
@@ -93,11 +284,18 @@ import { languages } from '../i18n/ui';
     font-size: 1rem;
     letter-spacing: 0.08em;
     text-decoration: none;
-    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
     min-width: 180px;
     text-align: center;
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 700ms ease,
+      transform 700ms cubic-bezier(0.16, 1, 0.3, 1),
+      background-color 0.2s,
+      border-color 0.2s,
+      color 0.2s;
   }
-
+  .lang-btn.visible { opacity: 1; transform: translateY(0); }
   .lang-btn:hover {
     background-color: #2c2c2c;
     border-color: #2c2c2c;
