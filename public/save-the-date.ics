@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Thorbjørn & Lorena//Wedding 2027//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:wedding-20270605@sudheim.eu
+DTSTART:20270605T110000Z
+DTEND:20270605T220000Z
+SUMMARY:Thorbjørn & Lorena — Wedding
+DESCRIPTION:The wedding of Thorbjørn & Lorena.\nFinca Prados Riveros\nCamino del Palero\, 11\, 28740 Rascafría\, Madrid\, Spain.
+LOCATION:Finca Prados Riveros\nCamino del Palero\, 11\, 28740 Rascafría\, Madrid\, Spain
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

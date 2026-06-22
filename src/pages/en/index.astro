@@ -1,0 +1,129 @@
+---
+import Base from '../../layouts/Base.astro';
+import { useTranslations } from '../../i18n/ui';
+import { Image } from 'astro:assets';
+import heroPhoto from '../../assets/images/IMG_9486.JPG';
+
+const t = useTranslations('en');
+---
+
+<Base title="Thorbjørn & Lorena — Save the Date — 5 June 2027">
+  <div class="home">
+    <div class="photo-wrap">
+      <Image src={heroPhoto} alt="Thorbjørn and Lorena" class="hero-photo" />
+    </div>
+
+    <a href="/save-the-date.ics" download="save-the-date.ics" class="save-date-btn">{t('btn.saveTheDate')}</a>
+
+    <div class="countdown" id="countdown">
+      <div class="unit"><span class="number" id="days">--</span><span class="label">{t('countdown.days')}</span></div>
+      <div class="sep">:</div>
+      <div class="unit"><span class="number" id="hours">--</span><span class="label">{t('countdown.hours')}</span></div>
+      <div class="sep">:</div>
+      <div class="unit"><span class="number" id="minutes">--</span><span class="label">{t('countdown.minutes')}</span></div>
+      <div class="sep">:</div>
+      <div class="unit"><span class="number" id="seconds">--</span><span class="label">{t('countdown.seconds')}</span></div>
+    </div>
+  </div>
+</Base>
+
+<script>
+  function update() {
+    const target = new Date('2027-06-05T13:00:00');
+    const diff = target.getTime() - Date.now();
+
+    if (diff <= 0) {
+      document.getElementById('countdown')!.textContent = '🎉';
+      return;
+    }
+
+    const days    = Math.floor(diff / 86400000);
+    const hours   = Math.floor((diff % 86400000) / 3600000);
+    const minutes = Math.floor((diff % 3600000) / 60000);
+    const seconds = Math.floor((diff % 60000) / 1000);
+
+    document.getElementById('days')!.textContent    = String(days).padStart(2, '0');
+    document.getElementById('hours')!.textContent   = String(hours).padStart(2, '0');
+    document.getElementById('minutes')!.textContent = String(minutes).padStart(2, '0');
+    document.getElementById('seconds')!.textContent = String(seconds).padStart(2, '0');
+  }
+
+  update();
+  setInterval(update, 1000);
+</script>
+
+<style>
+  .home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    padding: 4rem 2rem;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', serif;
+    color: #2c2c2c;
+  }
+
+  .photo-wrap {
+    width: 60%;
+    max-width: 640px;
+  }
+
+  .hero-photo {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .save-date-btn {
+    display: inline-block;
+    padding: 0.65rem 2rem;
+    border: 1px solid #c8c0b4;
+    color: #2c2c2c;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+  }
+
+  .save-date-btn:hover {
+    background-color: #2c2c2c;
+    color: #faf9f7;
+  }
+
+  .countdown {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    min-width: 3rem;
+  }
+
+  .number {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    line-height: 1;
+  }
+
+  .label {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #999;
+  }
+
+  .sep {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    line-height: 1;
+    color: #ccc;
+  }
+</style>

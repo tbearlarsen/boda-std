@@ -1,0 +1,173 @@
+---
+import { getLangFromUrl } from '../i18n/ui';
+import gbFlag from '../assets/images/gb.svg?raw';
+import esFlag from '../assets/images/es.svg?raw';
+import dkFlag from '../assets/images/dk.svg?raw';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+
+const flags: Record<string, string> = { en: gbFlag, es: esFlag, da: dkFlag };
+const otherLangs = Object.keys(flags).filter(l => l !== lang) as Array<keyof typeof flags>;
+const switchPath = (target: string) => Astro.url.pathname.replace(`/${lang}/`, `/${target}/`);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/monogram.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Qwitcher+Grypen&display=swap" rel="stylesheet" />
+    <title>{title}</title>
+  </head>
+  <style is:global>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #faf9f7;
+      color: #2c2c2c;
+      font-family: Georgia, 'Times New Roman', serif;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 2rem 0;
+    }
+
+    .lang-switcher {
+      position: fixed;
+      bottom: 2rem;
+      left: 2rem;
+      user-select: none;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0.5rem;
+    }
+
+    .lang-trigger svg {
+      transition: opacity 0.2s ease;
+    }
+
+    .lang-switcher.open .lang-trigger svg {
+      opacity: 0.3;
+    }
+
+    .lang-trigger {
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      line-height: 1;
+      display: block;
+    }
+
+    .lang-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transform: translateY(0.4rem);
+      transition: max-height 0.25s ease, opacity 0.2s ease, transform 0.2s ease, margin 0.25s ease;
+      margin-bottom: 0;
+    }
+
+    .lang-switcher.open .lang-options {
+      max-height: 6rem;
+      opacity: 1;
+      transform: translateY(0);
+      margin-bottom: 0.4rem;
+    }
+
+    .lang-option {
+      text-decoration: none;
+      line-height: 1;
+      display: block;
+    }
+
+    .lang-switcher svg,
+    .lang-option svg {
+      width: 1.5rem;
+      height: auto;
+      display: block;
+      filter: grayscale(100%);
+    }
+
+    .lang-option:hover svg {
+      opacity: 0.7;
+    }
+
+    .site-identity {
+      padding-bottom: 1.25rem;
+    }
+
+    .site-names {
+      font-family: 'Qwitcher Grypen', cursive;
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-weight: 400;
+      color: #2c2c2c;
+      display: block;
+      line-height: 1.1;
+    }
+
+    .site-date {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #999;
+      margin-top: 0.4rem;
+    }
+
+    .header-rule {
+      border: none;
+      border-top: 1px solid #ddd8d0;
+      margin: 0;
+    }
+  </style>
+  <body>
+    <header>
+      <div class="site-identity">
+        <p class="site-names">Thorbjørn & Lorena</p>
+        <p class="site-date">5 June 2027</p>
+      </div>
+      <hr class="header-rule" />
+    </header>
+    <main>
+      <slot />
+    </main>
+    <div class="lang-switcher" id="lang-switcher">
+      <div class="lang-options">
+        {otherLangs.map((l: string) => (
+          <a href={switchPath(l)} class="lang-option"><Fragment set:html={flags[l]} /></a>
+        ))}
+      </div>
+      <button class="lang-trigger" id="lang-trigger" aria-label="Switch language">
+        <Fragment set:html={flags[lang]} />
+      </button>
+    </div>
+
+    <script>
+      const switcher = document.getElementById('lang-switcher')!;
+      const trigger = document.getElementById('lang-trigger')!;
+
+      trigger.addEventListener('click', () => {
+        switcher.classList.toggle('open');
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!switcher.contains(e.target as Node)) {
+          switcher.classList.remove('open');
+        }
+      });
+    </script>
+  </body>
+</html>
