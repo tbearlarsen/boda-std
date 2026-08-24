@@ -1,6 +1,6 @@
 # PROGRESS.md — boda-std
 
-## Status: Project scaffold created, not yet deployed
+## Status: Page built and multilingual; deploy pipeline in place; DNS + Pages activation still unconfirmed
 
 ---
 
@@ -10,22 +10,27 @@
 - [x] CLAUDE.md written (project-specific, adapted from main site)
 - [x] `_project/` docs created (PLAN, PROGRESS, DECISIONS, QUESTIONS)
 - [x] Memory files copied from main project
+- [x] Subdomain decided: `savethedate.sudheim.eu` (see `public/CNAME`)
+- [x] Save-the-date page built: hero photo, names, date, ICS calendar download, live countdown
+- [x] Multilingual: EN / ES / DA pages (`src/pages/{en,es,da}/index.astro`) with a language-picker landing page and a language switcher in the header
+- [x] Entrance animations + page-transition effects (falling petals, glow, staggered reveal, view-transitions)
+- [x] GitHub repo created and pushed (`tbearlarsen/boda-std`)
+- [x] GitHub Actions deploy workflow added (`.github/workflows/deploy.yml`, builds + deploys to Pages on push to `main`)
+- [x] `public/save-the-date.ics` calendar file written with wedding details
 
 ## In Progress
 
-- [ ] Decide subdomain
-- [ ] Build the single save-the-date page
-- [ ] Create GitHub repo and enable Pages
-- [ ] Add DNS CNAME for subdomain
+- [ ] Confirm GitHub Pages is enabled in repo settings (Settings → Pages → Source: GitHub Actions)
+- [ ] Add DNS CNAME record for `savethedate.sudheim.eu` pointing at GitHub Pages
+- [ ] Verify the deployed site live at the subdomain once DNS propagates
 
 ## Blocked
 
-- Subdomain name not yet decided
-- DNS provider for sudheim.eu not yet confirmed
+- DNS provider for sudheim.eu not yet confirmed (needed to add the CNAME record) — see Q2 in QUESTIONS.md
 
 ## Next
 
-1. Decide the subdomain (e.g. `std.sudheim.eu`)
-2. Build the page (photo, names, date, ICS download, countdown)
-3. Create GitHub repo, push, enable Pages, add CNAME file
-4. Add DNS record
+1. Confirm Pages is enabled on the GitHub repo
+2. Identify DNS provider for sudheim.eu and add the CNAME record
+3. Verify live site once DNS resolves
+4. Final content/QA pass (see open questions)

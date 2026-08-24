@@ -20,6 +20,11 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
+# raw video source files dropped in the repo root for editing —
+# only the trimmed/compressed output in public/ should be committed
+/*.mov
+/*.mp4
+
 # jetbrains setting folder
 .idea/
 
