@@ -4,11 +4,6 @@
 
 ## Open
 
-### Q2: Who manages DNS for sudheim.eu?
-
-Which registrar / DNS provider? Needed to add the CNAME record pointing the subdomain
-at GitHub Pages.
-
 ### Q3: Should the Save the Date design match the main site exactly?
 
 Or should it be slightly different (simpler, different colour, etc.)?
@@ -24,3 +19,9 @@ Set in `public/CNAME`.
 ### Q4: Do we need multilingual versions (EN + DA + ES)? — Yes
 
 Built: EN / ES / DA pages with a language-picker landing page and a header language switcher.
+
+### Q2: Who manages DNS for sudheim.eu? — Moot, record already exists
+
+The CNAME record for `savethedate.sudheim.eu` is already in place and resolving correctly
+to GitHub Pages (verified via `dig`), and GitHub's HTTPS certificate for it is approved.
+Whoever/whatever manages it, it's already done — no action needed.

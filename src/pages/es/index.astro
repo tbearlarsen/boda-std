@@ -13,7 +13,7 @@ const t = useTranslations('es');
       <Image src={heroPhoto} alt="Thorbjørn y Lorena" class="hero-photo" />
     </div>
 
-    <a href="/save-the-date.ics" download="save-the-date.ics" class="save-date-btn">{t('btn.saveTheDate')}</a>
+    <a href="/save-the-date-es.ics" download="save-the-date.ics" class="save-date-btn">{t('btn.saveTheDate')}</a>
 
     <div class="countdown" id="countdown">
       <div class="unit"><span class="number" id="days">--</span><span class="label">{t('countdown.days')}</span></div>
@@ -29,7 +29,7 @@ const t = useTranslations('es');
 
 <script>
   function update() {
-    const target = new Date('2027-06-05T13:00:00');
+    const target = new Date('2027-06-05T13:00:00+02:00'); // 13:00 CEST (Madrid)
     const diff = target.getTime() - Date.now();
 
     if (diff <= 0) {

@@ -18,9 +18,9 @@ const letterIntro: string[][] = [
     'After OH SO MANY years of dreaming about this moment (Lorena) and seriously worrying about our finances (Thorbjørn), the time has finally come... we’re getting married! 💍',
   ],
   [
-    'Last year, during a trip to the French mountains, we had a wonderfully unexpected and completely improvised proposal. And now, after what feels like years of planning, excitement, nerves and probably the occasional budget-related crisis, the big day is getting closer! 🥹❤️',
+    'Last year, during a trip to the French mountains, and after a minor crisis revolving around Lorena\'s insistence on buying the next book in the series she was reading, we found ourselves spending the night in one of the most beautiful places we have been. Good food and wine, fantastic views, and a stunning sunset, all led to the inevitable moment when Thorbjørn got down to one knee. And now, after what feels like years of planning, excitement, nerves and probably the occasional budget-related crisis, the big day is getting closer! 🥹❤️',
   ],
-  ['We are so excited to share and celebrate this special day with all of you. It simply wouldn’t be the same without the people we love.'],
+  ['We are so excited to share and celebrate this special day with all of you. It simply wouldn’t be the same without all the people we love.'],
 ];
 
 const letterBody: string[][] = [
@@ -28,13 +28,12 @@ const letterBody: string[][] = [
     'The date in question is June 5th. We have found an absolutely lovely venue in the mountains north of Madrid. Yes, Madrid. As in Spain. Good weather and fantastic food. We are well aware that travelling to another country to attend a wedding is a big ask. We hope you will channel your inner Bilbo Baggins, and get ready to go on an adventure. We would love to share our day with you.',
   ],
   [
-    'For now, your only mission is to save the date in your calendar (you know you want to click that convenient save the date botton), and start warming up for the dance floor. We are expecting a healthy mix of questionable wedding choreography, classic party moves, enthusiastic singing along, some impressive dad dancing and, of course, whatever moves come naturally once the music starts. 💃🕺',
+    'For now, your only mission is to save the date in your calendar (you know you want to click that convenient save the date button), and start warming up for the dance floor. We are expecting a healthy mix of questionable wedding choreography, classic party moves, enthusiastic singing along, some impressive dad dancing and, of course, whatever moves come naturally once the music starts. 💃🕺',
   ],
   ['✈️ Getting to Madrid'],
   [
-    'For those of you travelling from abroad, Madrid has a large international airport, Adolfo Suárez Madrid-Barajas Airport, with plenty of connections from across Europe and beyond.',
+    'For those of you travelling from abroad, Madrid has a large international airport, Adolfo Suárez Madrid-Barajas Airport, with plenty of connections from across Europe and beyond. So a humble request for you to start looking at flights.',
   ],
-  ['So, if you haven’t already, this is your gentle reminder to start looking at flights and save the date! ✈️'],
   ['🛏️ Accommodation'],
   [
     'When it comes to accommodation, there is a village 10 minutes from the venue with plenty of hotels. It won\'t surprise you to hear that we are still in the planning phase and figuring things out, but we will talk with the different establishments and try to negotiate a better price for everyone. So for now, hold off on booking a room. We’ll share more details and information with you over the coming months.',
@@ -46,10 +45,14 @@ const letterBody: string[][] = [
   [
     'Whether you want to explore Madrid, discover beautiful villages, head to the coast, enjoy some Spanish food and wine, or simply find the best places to relax and enjoy the sunshine, we’ll be very happy to help you plan it. 🇪🇸☀️🍷',
   ],
+];
+
+const letterClosing: string[][] = [
   [
-    'We can’t wait for this moment to arrive, to see all of you looking absolutely fabulous in the Madrid mountains, and, most importantly, to celebrate together the day we’ve been waiting for for so long.',
+    'We can\'t wait for the day to come already, to see all of you looking fabulous in the mountains of Madrid, and most importantly, to celebrate with the people we love.',
   ],
-  ['Lots of love and a huge hug.', 'We can’t wait to see you! ❤️', 'Lorena & Thor'],
+  ['Lots of love and a huge hug. We can’t wait to see you! ❤️'],
+  ['Lorena & Thorbjørn'],
 ];
 
 // Single-line letterBody entries that should render as section headings
@@ -172,7 +175,7 @@ const selfieDeckleClipPath = deckleEdge(55);
         <span class="date-rule" aria-hidden="true"></span>
       </div>
       <div class="cta">
-        <a href="/save-the-date.ics" download="save-the-date.ics" class="save-date-btn">{t('btn.saveTheDate')}</a>
+        <a href="/save-the-date-en.ics" download="save-the-date.ics" class="save-date-btn">{t('btn.saveTheDate')}</a>
         <span class="click-hint" aria-hidden="true">Click me!</span>
         <span class="click-hint click-hint-2" aria-hidden="true">Pretty please?</span>
       </div>
@@ -204,6 +207,19 @@ const selfieDeckleClipPath = deckleEdge(55);
       <div class="unit"><span class="number" id="seconds">--</span><span class="label">{t('countdown.seconds')}</span></div>
     </div>
 
+    <div class="message closing-message">
+      {letterClosing.map((paragraph) => (
+        <p>
+          {paragraph.map((line, i) => (
+            <>
+              {i > 0 && <br />}
+              {line}
+            </>
+          ))}
+        </p>
+      ))}
+    </div>
+
     <div class="venue">
       <p class="venue-name">{venueName}</p>
       <p class="venue-address">{venueAddress}</p>
@@ -221,12 +237,14 @@ const selfieDeckleClipPath = deckleEdge(55);
         <span class="corner-mount corner-mount-br" aria-hidden="true"></span>
       </div>
     </div>
+
+    <p class="lotr-note">Make haste! For it is before the mountains of Rascafría that the doom of our time will be decided</p>
   </div>
 </Base>
 
 <script>
   function update() {
-    const target = new Date('2027-06-05T13:00:00');
+    const target = new Date('2027-06-05T13:00:00+02:00'); // 13:00 CEST (Madrid)
     const diff = target.getTime() - Date.now();
 
     if (diff <= 0) {
@@ -420,6 +438,10 @@ const selfieDeckleClipPath = deckleEdge(55);
     margin: 0;
   }
 
+  .closing-message {
+    gap: 2.25rem;
+  }
+
   .message .section-heading {
     margin-top: 0.75rem;
     font-size: 0.8rem;
@@ -460,6 +482,16 @@ const selfieDeckleClipPath = deckleEdge(55);
     text-transform: uppercase;
     color: #2c2c2c;
     white-space: nowrap;
+  }
+
+  .lotr-note {
+    max-width: 560px;
+    margin-top: -1.75rem;
+    font-family: 'Homemade Apple', cursive;
+    font-size: 1.1rem;
+    line-height: 1.4;
+    color: #2c2c2c;
+    transform: rotate(0.8deg);
   }
 
   .venue {

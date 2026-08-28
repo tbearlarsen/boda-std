@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Thorbjørn & Lorena//Wedding 2027//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:wedding-20270605-en@sudheim.eu
+DTSTART:20270605T110000Z
+DTEND:20270606T090000Z
+SUMMARY:Thorbjørn & Lorena's Wedding
+DESCRIPTION:Warm up those dancing shoes! Thorbjørn & Lorena are tying the knot in the mountains near Madrid. Revisit savethedate.sudheim.eu for the countdown and a few preliminary details. The full invitation and all practical information will follow closer to the day. 🕺💃\n\n\n\n\n\nThank you for channeling your inner Bilbo! We love you.\n\n«We are plain quiet folk and have no use for adventures. Nasty disturbing uncomfortable things! Make you late for dinner!»\n- Bilbo Baggins
+LOCATION:Finca Prados Riveros\nCamino del Palero\, 11\, 28740 Rascafría\, Madrid\, Spain
+GEO:40.868775;-3.892475
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS="Camino del Palero\, 11\, 28740 Rascafría\, Madrid\, Spain";X-APPLE-RADIUS=150;X-TITLE=Finca Prados Riveros:geo:40.868775,-3.892475
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Thorbjørn & Lorena//Wedding 2027//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:wedding-20270605-es@sudheim.eu
+DTSTART:20270605T110000Z
+DTEND:20270606T090000Z
+SUMMARY:Boda de Thorbjørn & Lorena
+DESCRIPTION:¡Preparad los zapatos de baile! Thorbjørn y Lorena se casan en las montañas cerca de Madrid. Visitad savethedate.sudheim.eu para ver la cuenta atrás y algunos detalles preliminares. La invitación completa y toda la información práctica llegarán más cerca de la fecha. 🕺💃\n\n\n\n\n\n¡Gracias por sacar a vuestro Bilbo interior! Os queremos.\n\n«En estos lugares somos gente sencilla y tranquila y no estamos acostumbrados a las aventuras. ¡Cosas desagradables\, molestas e incómodas que retrasan la cena!»\n- Bilbo Baggins
+LOCATION:Finca Prados Riveros\nCamino del Palero\, 11\, 28740 Rascafría\, Madrid\, Spain
+GEO:40.868775;-3.892475
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS="Camino del Palero\, 11\, 28740 Rascafría\, Madrid\, Spain";X-APPLE-RADIUS=150;X-TITLE=Finca Prados Riveros:geo:40.868775,-3.892475
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

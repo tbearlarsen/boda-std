@@ -13,11 +13,11 @@ Dear family and friends,
 
 After OH SO MANY years of dreaming about this moment (Lorena) and seriously worrying about our finances (Thorbjørn), the time has finally come... we’re getting married! 💍
 
-Last year, during a trip to the French mountains, we had a wonderfully unexpected and completely improvised proposal. And now, after what feels like years of planning, excitement, nerves and probably the occasional budget-related crisis, the big day is getting closer! 🥹❤️
+Last year, during a trip to the French mountains, and after a minor crisis revolving around Lorena's insistence on buying the next book in the series she was reading, we found ourselves spending the night in one of the most beautiful places we have been. Good food and wine, fantastic views, and a stunning sunset, all led to the inevitable moment when Thorbjørn got down to one knee. And now, after what feels like years of planning, excitement, nerves and probably the occasional budget-related crisis, the big day is getting closer! 🥹❤️
 
 ## The big day
 
-We are so excited to share and celebrate this special day with all of you. It simply wouldn’t be the same without the people we love.
+We are so excited to share and celebrate this special day with all of you. It simply wouldn’t be the same without all the people we love.
 
 **Date:** 5 June 2027
 
@@ -28,13 +28,11 @@ We are so excited to share and celebrate this special day with all of you. It si
 
 The date in question is June 5th. We have found an absolutely lovely venue in the mountains north of Madrid. Yes, Madrid. As in Spain. Good weather and fantastic food. We are well aware that travelling to another country to attend a wedding is a big ask. We hope you will channel your inner Bilbo Baggins, and get ready to go on an adventure. We would love to share our day with you.
 
-For now, your only mission is to save the date in your calendar (you know you want to click that convenient save the date botton), and start warming up for the dance floor. We are expecting a healthy mix of questionable wedding choreography, classic party moves, enthusiastic singing along, some impressive dad dancing and, of course, whatever moves come naturally once the music starts. 💃🕺
+For now, your only mission is to save the date in your calendar (you know you want to click that convenient save the date button), and start warming up for the dance floor. We are expecting a healthy mix of questionable wedding choreography, classic party moves, enthusiastic singing along, some impressive dad dancing and, of course, whatever moves come naturally once the music starts. 💃🕺
 
 ## ✈️ Getting to Madrid
 
-For those of you travelling from abroad, Madrid has a large international airport, Adolfo Suárez Madrid-Barajas Airport, with plenty of connections from across Europe and beyond.
-
-So, if you haven’t already, this is your gentle reminder to start looking at flights and save the date! ✈️
+For those of you travelling from abroad, Madrid has a large international airport, Adolfo Suárez Madrid-Barajas Airport, with plenty of connections from across Europe and beyond. So a humble request for you to start looking at flights.
 
 ## 🛏️ Accommodation
 
@@ -49,8 +47,9 @@ Whether you want to explore Madrid, discover beautiful villages, head to the coa
 
 ## Closing
 
-We can’t wait for this moment to arrive, to see all of you looking absolutely fabulous in the Madrid mountains, and, most importantly, to celebrate together the day we’ve been waiting for for so long.
+We can't wait for the day to come already, to see all of you looking fabulous in the mountains of Madrid, and most importantly, to celebrate with the people we love.
 
-Lots of love and a huge hug.
-We can’t wait to see you! ❤️
-Lorena & Thor
+
+Lots of love and a huge hug. We can’t wait to see you! ❤️
+
+Lorena & Thorbjørn

@@ -1,6 +1,6 @@
 # PROGRESS.md — boda-std
 
-## Status: Page built and multilingual; deploy pipeline in place; DNS + Pages activation still unconfirmed
+## Status: Live at https://savethedate.sudheim.eu/ — EN and DA pages fully built out; ES still on the old placeholder layout
 
 ---
 
@@ -17,20 +17,21 @@
 - [x] GitHub repo created and pushed (`tbearlarsen/boda-std`)
 - [x] GitHub Actions deploy workflow added (`.github/workflows/deploy.yml`, builds + deploys to Pages on push to `main`)
 - [x] `public/save-the-date.ics` calendar file written with wedding details
+- [x] GitHub Pages enabled and live (verified `GET /en/` → 200 at the custom domain)
+- [x] DNS CNAME configured and resolving (`savethedate.sudheim.eu` → `tbearlarsen.github.io`), HTTPS certificate approved
+- [x] EN page fully built out: photo-album styling (deckled edges, corner mounts, tilt) reused across hero photo, proposal video, second photo, and map; full letter content synced from `description.md`; save-the-date button relocated under a styled date display; floating "Click me!" / "Pretty please?" hints by the button; secret link on the video caption to the Airbnb listing; mobile-specific sizing/spacing throughout
+- [x] DA page fully built out to match EN's design; letter translated and synced from `description.da.md` (decorative text — heading, photo captions, hints, Tolkien quote — intentionally left in English per instruction); section headings translated to Danish
+- [x] Countdown/event timezone bug fixed — was implicitly local-time per viewer, now pinned to CEST so every guest sees the same real moment
+- [x] Replaced the single generic `save-the-date.ics` with three language-specific files (`public/save-the-date-{en,da,es}.ics`), each with its own translated title/description, including a Bilbo Baggins quote verified against the actual published translation in each language (see `savethedateics.md` for the source drafts)
+- [x] Fixed calendar map/location display — `LOCATION` field restructured (name on its own line) and `GEO` / `X-APPLE-STRUCTURED-LOCATION` added, verified against the user's own device geocoding
 
 ## In Progress
 
-- [ ] Confirm GitHub Pages is enabled in repo settings (Settings → Pages → Source: GitHub Actions)
-- [ ] Add DNS CNAME record for `savethedate.sudheim.eu` pointing at GitHub Pages
-- [ ] Verify the deployed site live at the subdomain once DNS propagates
-
-## Blocked
-
-- DNS provider for sudheim.eu not yet confirmed (needed to add the CNAME record) — see Q2 in QUESTIONS.md
+- [ ] Build out ES page to match EN/DA (currently still on the old placeholder layout); `description.es.md` has a draft translation ready to sync in
+- [ ] Final content/QA pass — proofread the letter, confirm venue map + accommodation details are accurate
 
 ## Next
 
-1. Confirm Pages is enabled on the GitHub repo
-2. Identify DNS provider for sudheim.eu and add the CNAME record
-3. Verify live site once DNS resolves
-4. Final content/QA pass (see open questions)
+1. Build the ES page (reuse the EN/DA structure, sync `description.es.md`)
+2. Decide on ES decorative-text language (English, like DA, or translated)
+3. Final proofread + cross-device check before sharing the link with guests
