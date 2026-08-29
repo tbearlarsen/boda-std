@@ -10,7 +10,7 @@ const t = useTranslations('da');
 // Decorative text (heading, photo captions, hints, quote) intentionally
 // stays in English for now — only the letter itself is translated.
 // See description.da.md for source.
-const excitedHeading = "We're Getting Married!";
+const excitedHeading = 'Gør jer klar til et eventyr... for vi skal giftes!';
 
 // Verbatim from description.da.md, split on blank lines into paragraphs and
 // on single line breaks within a paragraph. Section headings kept in
@@ -52,7 +52,7 @@ const letterBody: string[][] = [
 
 const letterClosing: string[][] = [
   [
-    'Vi kan simpelthen ikke vente på, at dagen kommer, på at se jer alle sammen se fantastiske ud i Madrids bjerge, og vigtigst af alt, på at fejre sammen med de mennesker, vi elsker.',
+    'Vi kan simpelthen ikke vente på, at dagen kommer, på at se jer alle sammen se fantastiske ud i Madrids bjerge, og vigtigst af alt, på at fejre sammen med de mennesker, vi elsker. Dette har selvfølgelig været en masse indledende information, men vi skal nok give alle praktiske detaljer og relevant information når vi får sendt de endelige invitationer ud, så have no worries! Hvis i allerede har spørgsmål, er i selvfølgelig mere end velkommen til at kontakte os (Lorena: +45 50250254 / Thorbjørn: +45 40516795).',
   ],
   ['Masser af kærlighed og et kæmpe kram kram. Vi kan ikke vente med at se jer! ❤️'],
   ['Lorena & Thorbjørn'],
@@ -128,7 +128,9 @@ const selfieDeckleClipPath = deckleEdge(55);
 
 <Base title="Thorbjørn & Lorena — Gem Datoen — 5. juni 2027">
   <div class="home">
-    <h2 class="excited-heading">{excitedHeading}</h2>
+    <div class="heading-wrap">
+      <h2 class="excited-heading">{excitedHeading}</h2>
+    </div>
 
     <div class="photo-wrap">
       <div class="photo-frame">
@@ -136,7 +138,7 @@ const selfieDeckleClipPath = deckleEdge(55);
         <span class="corner-mount corner-mount-tl" aria-hidden="true"></span>
         <span class="corner-mount corner-mount-br" aria-hidden="true"></span>
       </div>
-      <p class="photo-caption hero-caption">Lover's Bridge,<br />Brugge, 2025</p>
+      <p class="photo-caption hero-caption">Lover's Bridge,<br />Brugge</p>
     </div>
 
     <div class="message">
@@ -292,12 +294,20 @@ const selfieDeckleClipPath = deckleEdge(55);
     color: #2c2c2c;
   }
 
+  .heading-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: rotate(1.5deg);
+  }
+
   .excited-heading {
-    font-family: 'Qwitcher Grypen', cursive;
-    font-size: clamp(2rem, 6vw, 3rem);
+    font-family: 'Homemade Apple', cursive;
+    font-size: clamp(1.6rem, 4.2vw, 2.2rem);
     font-weight: 400;
     color: #2c2c2c;
     margin: 0;
+    line-height: 1.4;
   }
 
   .photo-wrap {

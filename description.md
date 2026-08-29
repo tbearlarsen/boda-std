@@ -47,7 +47,7 @@ Whether you want to explore Madrid, discover beautiful villages, head to the coa
 
 ## Closing
 
-We can't wait for the day to come already, to see all of you looking fabulous in the mountains of Madrid, and most importantly, to celebrate with the people we love.
+We can't wait for the day to come already, to see all of you looking fabulous in the mountains of Madrid, and most importantly, to celebrate with the people we love. This has been a bunch of preliminary information, but we will provide all the practical details and relevant information once we get the final invitations sent out, so have no worries! If you have any questions already, you are of course most welcome to contact any of us (Lorena: +45 50250254 / Thorbjørn: +45 40516795).
 
 
 Lots of love and a huge hug. We can’t wait to see you! ❤️

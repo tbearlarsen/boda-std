@@ -46,7 +46,8 @@ Uanset om I vil udforske Madrid, tage ud og opleve de smukke landsbyer, tage til
 
 ## Closing
 
-Vi kan simpelthen ikke vente på, at dagen kommer, på at se jer alle sammen se fantastiske ud i Madrids bjerge, og vigtigst af alt, på at fejre sammen med de mennesker, vi elsker.
+Vi kan simpelthen ikke vente på, at dagen kommer, på at se jer alle sammen se fantastiske ud i Madrids bjerge, og vigtigst af alt, på at fejre sammen med de mennesker, vi elsker. Dette har selvfølgelig været en masse indledende information, men vi skal nok give alle praktiske detaljer og relevant information når vi får sendt de endelige invitationer ud, så have no worries! Hvis i allerede har spørgsmål, er i selvfølgelig mere end velkommen til at kontakte os (Lorena: +45 50250254 / Thorbjørn: +45 40516795).
+
 
 Masser af kærlighed og et kæmpe kram kram. Vi kan ikke vente med at se jer! ❤️
 

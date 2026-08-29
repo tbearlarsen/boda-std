@@ -3,17 +3,195 @@ import Base from '../../layouts/Base.astro';
 import { useTranslations } from '../../i18n/ui';
 import { Image } from 'astro:assets';
 import heroPhoto from '../../assets/images/IMG_9486.JPG';
+import selfiePhoto from '../../assets/images/IMG_9751.jpeg';
 
 const t = useTranslations('es');
+
+// Decorative text (heading, photo captions, hints, quote) intentionally
+// stays in English for now — only the letter itself is translated.
+// See description.es.md for source.
+const excitedHeading = 'Preparaos para una aventura... ¡nos casamos!';
+
+// Verbatim from description.es.md, split on blank lines into paragraphs and
+// on single line breaks within a paragraph. This version is intentionally
+// different from EN/DA (tailored to guests already living in Spain) — no
+// "Getting to Madrid" or "why not make a holiday of it" sections, an extra
+// Accommodation paragraph, and a closing P.S. Section headings kept in
+// English to match description.es.md.
+const letterIntro: string[][] = [
+  ['Queridos familiares y amigos,'],
+  [
+    'Después de TANTÍSIMOS años soñando con este momento (Lorena) y preocupándonos seriamente por nuestras finanzas (Thorbjørn), por fin ha llegado el momento... ¡nos casamos! 💍',
+  ],
+  [
+    'El año pasado, durante un viaje a las montañas francesas, y después de una pequeña crisis relacionada con la insistencia de Lorena en comprar el siguiente libro de la saga que estaba leyendo (Gracias chicas. Sabéis quiénes sois. Esto es culpa vuestra), terminamos pasando la noche en uno de los lugares más bonitos en los que hemos estado. Buena comida y vino, vistas fantásticas y una puesta de sol espectacular... y, bueno, ya sabéis lo que pasó después: Thorbjørn de rodillas. Y ahora, después de lo que parecen años de planificación, emoción, nervios y, probablemente, alguna que otra crisis relacionada con el presupuesto, ¡el gran día se acerca! 🥹❤️',
+  ],
+  ['Estamos deseando compartir y celebrar este día con todos vosotros, porque sin la gente que queremos, este día tan especial no sería lo mismo.'],
+];
+
+const letterBody: string[][] = [
+  [
+    'La fecha en cuestión es el 5 de junio. Hemos encontrado un lugar precioso en las montañas al norte de Madrid. Por ahora, vuestra única misión es guardar la fecha en el calendario (sabéis que os morís de ganas de pulsar ese botón tan práctico de guardar la fecha), y empezar a calentar motores para la pista de baile. Se aceptan y se valorarán especialmente: sevillanas, reguetón, El Aserejé, coreografías improvisadas y cualquier movimiento que pueda parecerse remotamente a bailar. 💃🕺',
+  ],
+  ['🛏️ Alojamiento'],
+  [
+    'En cuanto al alojamiento, hay un pueblo a 10 minutos del lugar de la boda con muchos hoteles. No os sorprenderá saber que todavía estamos en fase de planificación y organizándolo todo, pero hablaremos con los distintos establecimientos para intentar negociar un mejor precio para todos. Así que, por ahora, no reservéis habitación todavía. Os daremos más detalles e información en los próximos meses.',
+  ],
+  [
+    'Obviamente, también existe la opción de volver a Madrid esa misma noche. Para que os hagáis una idea, la finca está aproximadamente a una hora y media de Madrid en coche, así que quienes prefiráis volver a casa esa misma noche, ¡sois más que bienvenidos! ❤️',
+  ],
+];
+
+const letterClosing: string[][] = [
+  [
+    'Estamos deseando que llegue el día, veros a todos guapísimos en las montañas de Madrid y, sobre todo, celebrar con las personas que queremos. Esto ha sido un montón de información preliminar, pero os daremos todos los detalles prácticos e información relevante en cuanto enviemos las invitaciones definitivas, ¡así que no os preocupéis! Si ya tenéis alguna pregunta, por supuesto sois más que bienvenidos a contactar con cualquiera de nosotros (Lorena: +45 50250254 / Thorbjørn: +45 40516795).',
+  ],
+  ['Con todo nuestro cariño y un enorme abrazo. ¡Os esperamos! ❤️'],
+  ['Lorena & Thorbjørn'],
+  [
+    'P.S. Para la gente que habla español y que viene de fuera de España, echad un vistazo a la versión en inglés para más información.',
+  ],
+];
+
+// Single-line letterBody entries that should render as section headings
+// rather than body text.
+const sectionHeadings = new Set(['🛏️ Alojamiento']);
+
+const venueName = 'Finca Prados Riveros';
+const venueAddress = 'Camino del Palero 11, 28740 Rascafría, Madrid, Spain';
+const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(`${venueName}, ${venueAddress}`)}&output=embed`;
+
+// Deterministic "deckled paper" edge for the photo — a slightly irregular
+// outline instead of a sharp rectangle. Fixed seed so it's stable across
+// rebuilds instead of reshuffling on every deploy.
+function mulberry32(seed: number) {
+  return function () {
+    seed |= 0;
+    seed = (seed + 0x6d2b79f5) | 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function deckleEdge(seed: number) {
+  const rand = mulberry32(seed);
+  const perEdge = 18;
+  const amp = 0.65;
+  const points: string[] = [];
+
+  const wobble = (t: number) => (Math.sin(t * Math.PI * 4 + seed) * 0.4 + (rand() - 0.5)) * amp;
+
+  const walk = (x0: number, y0: number, x1: number, y1: number, axis: 'x' | 'y') => {
+    for (let i = 0; i <= perEdge; i++) {
+      const t = i / perEdge;
+      const x = x0 + (x1 - x0) * t;
+      const y = y0 + (y1 - y0) * t;
+      const w = wobble(t + x0 + y0);
+      if (axis === 'x') points.push(`${x.toFixed(2)}% ${(y + w).toFixed(2)}%`);
+      else points.push(`${(x + w).toFixed(2)}% ${y.toFixed(2)}%`);
+    }
+  };
+
+  walk(0, 0, 100, 0, 'x');
+  walk(100, 0, 100, 100, 'y');
+  walk(100, 100, 0, 100, 'x');
+  walk(0, 100, 0, 0, 'y');
+
+  return `polygon(${points.join(', ')})`;
+}
+
+const deckleClipPath = deckleEdge(7);
+const mapDeckleClipPath = deckleEdge(21);
+const videoDeckleClipPath = deckleEdge(41);
+const selfieDeckleClipPath = deckleEdge(55);
 ---
 
 <Base title="Thorbjørn & Lorena — Guarda la Fecha — 5 de junio de 2027">
   <div class="home">
-    <div class="photo-wrap">
-      <Image src={heroPhoto} alt="Thorbjørn y Lorena" class="hero-photo" />
+    <div class="heading-wrap">
+      <h2 class="excited-heading">{excitedHeading}</h2>
     </div>
 
-    <a href="/save-the-date-es.ics" download="save-the-date.ics" class="save-date-btn">{t('btn.saveTheDate')}</a>
+    <div class="photo-wrap">
+      <div class="photo-frame">
+        <Image src={heroPhoto} alt="Thorbjørn and Lorena" class="hero-photo" style={`clip-path: ${deckleClipPath};`} />
+        <span class="corner-mount corner-mount-tl" aria-hidden="true"></span>
+        <span class="corner-mount corner-mount-br" aria-hidden="true"></span>
+      </div>
+      <p class="photo-caption hero-caption">Puente del Lago del Amor,<br />Brujas</p>
+    </div>
+
+    <div class="message">
+      {letterIntro.map((paragraph) => (
+        <p>
+          {paragraph.map((line, i) => (
+            <>
+              {i > 0 && <br />}
+              {line}
+            </>
+          ))}
+        </p>
+      ))}
+    </div>
+
+    <div class="photo-wrap video-wrap">
+      <div class="photo-frame video-frame">
+        <video
+          class="hero-photo"
+          style={`clip-path: ${videoDeckleClipPath};`}
+          src="/proposal.mp4"
+          poster="/proposal-poster.jpg"
+          autoplay
+          loop
+          muted
+          playsinline
+        ></video>
+        <span class="corner-mount corner-mount-tl" aria-hidden="true"></span>
+        <span class="corner-mount corner-mount-br" aria-hidden="true"></span>
+      </div>
+      <p class="photo-caption video-caption">
+        <a href="https://www.airbnb.com/rooms/24166990" target="_blank" rel="noopener noreferrer" class="secret-link">El Airbnb de François,<br />Jouy-aux-Arches,<br />Francia</a>
+      </p>
+    </div>
+
+    <div class="photo-wrap second-photo-wrap">
+      <div class="photo-frame second-photo-frame">
+        <Image src={selfiePhoto} alt="Thorbjørn and Lorena celebrating the proposal" class="hero-photo" style={`clip-path: ${selfieDeckleClipPath};`} />
+        <span class="corner-mount corner-mount-tl" aria-hidden="true"></span>
+        <span class="corner-mount corner-mount-br" aria-hidden="true"></span>
+      </div>
+      <p class="photo-caption second-photo-caption">¡Dijo que sí!</p>
+    </div>
+
+    <div class="date-block">
+      <div class="date-display">
+        <span class="date-rule" aria-hidden="true"></span>
+        <span class="date-text">5 June 2027</span>
+        <span class="date-rule" aria-hidden="true"></span>
+      </div>
+      <div class="cta">
+        <a href="/save-the-date-es.ics" download="save-the-date.ics" class="save-date-btn">{t('btn.saveTheDate')}</a>
+        <span class="click-hint" aria-hidden="true">¡Pincha aquí!</span>
+        <span class="click-hint click-hint-2" aria-hidden="true">¿Porfa?</span>
+      </div>
+    </div>
+
+    <div class="message">
+      {letterBody.map((paragraph) => {
+        const isHeading = paragraph.length === 1 && sectionHeadings.has(paragraph[0]);
+        return (
+          <p class={isHeading ? 'section-heading' : ''}>
+            {paragraph.map((line, i) => (
+              <>
+                {i > 0 && <br />}
+                {line}
+              </>
+            ))}
+          </p>
+        );
+      })}
+    </div>
 
     <div class="countdown" id="countdown">
       <div class="unit"><span class="number" id="days">--</span><span class="label">{t('countdown.days')}</span></div>
@@ -24,6 +202,39 @@ const t = useTranslations('es');
       <div class="sep">:</div>
       <div class="unit"><span class="number" id="seconds">--</span><span class="label">{t('countdown.seconds')}</span></div>
     </div>
+
+    <div class="message closing-message">
+      {letterClosing.map((paragraph) => (
+        <p>
+          {paragraph.map((line, i) => (
+            <>
+              {i > 0 && <br />}
+              {line}
+            </>
+          ))}
+        </p>
+      ))}
+    </div>
+
+    <div class="venue">
+      <p class="venue-name">{venueName}</p>
+      <p class="venue-address">{venueAddress}</p>
+      <div class="map-frame">
+        <iframe
+          src={mapSrc}
+          width="100%"
+          height="320"
+          style={`border:0; clip-path: ${mapDeckleClipPath};`}
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Venue location"
+        ></iframe>
+        <span class="corner-mount corner-mount-tl" aria-hidden="true"></span>
+        <span class="corner-mount corner-mount-br" aria-hidden="true"></span>
+      </div>
+    </div>
+
+    <p class="lotr-note">¡Daos prisa! Es el destino de nuestro tiempo lo que se decidirá delante de las montañas de Rascafría</p>
   </div>
 </Base>
 
@@ -64,15 +275,267 @@ const t = useTranslations('es');
     color: #2c2c2c;
   }
 
+  .heading-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: rotate(1.5deg);
+  }
+
+  .excited-heading {
+    font-family: 'Homemade Apple', cursive;
+    font-size: clamp(1.6rem, 4.2vw, 2.2rem);
+    font-weight: 400;
+    color: #2c2c2c;
+    margin: 0;
+    line-height: 1.4;
+  }
+
   .photo-wrap {
+    position: relative;
     width: 60%;
     max-width: 640px;
+  }
+
+  .photo-frame {
+    position: relative;
+    box-sizing: border-box;
+    margin: 1.5rem 0;
+    transform: rotate(-2deg);
+  }
+
+  .video-wrap {
+    width: 40%;
+    max-width: 427px;
+    transform: translateX(6.5rem);
+  }
+
+  .video-frame {
+    transform: rotate(2deg);
+  }
+
+  .second-photo-wrap {
+    width: 30%;
+    max-width: 320px;
+    margin-top: -1rem;
+    transform: translateX(-6.5rem);
+  }
+
+  .second-photo-frame {
+    transform: rotate(-3deg);
+  }
+
+  .photo-caption {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    margin-left: 1.5rem;
+    width: 190px;
+    font-family: 'Homemade Apple', cursive;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    color: #a9773f;
+    text-align: left;
+    white-space: nowrap;
+    transform: translateY(-50%) rotate(3deg);
+  }
+
+  .video-caption {
+    left: auto;
+    right: 100%;
+    margin-left: 0;
+    margin-right: 1.5rem;
+    text-align: right;
+    transform: translateY(-50%) rotate(-3deg);
+  }
+
+  .secret-link {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .secret-link:visited,
+  .secret-link:hover,
+  .secret-link:active,
+  .secret-link:focus {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  @media (max-width: 960px) {
+    .photo-wrap {
+      width: 88%;
+    }
+
+    .video-wrap {
+      width: 80%;
+      transform: none;
+    }
+
+    .second-photo-wrap {
+      width: 60%;
+      margin-top: 0;
+      transform: none;
+    }
+
+    .photo-caption {
+      position: static;
+      width: auto;
+      margin: 0.5rem 0 0;
+      text-align: center;
+      white-space: normal;
+    }
+
+    .hero-caption {
+      transform: rotate(1.5deg);
+    }
+
+    .second-photo-caption {
+      transform: rotate(1.5deg);
+    }
+
+    .video-caption {
+      transform: rotate(-1.5deg);
+    }
   }
 
   .hero-photo {
     width: 100%;
     height: auto;
     display: block;
+    /* clip-path clips the drop-shadow too, so fake depth with a filter instead */
+    filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.14));
+  }
+
+  .corner-mount {
+    position: absolute;
+    width: 9%;
+    aspect-ratio: 1;
+    pointer-events: none;
+    background: rgba(210, 182, 133, 0.8);
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.12));
+  }
+
+  .corner-mount-tl {
+    top: 0;
+    left: 0;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+  }
+
+  .corner-mount-br {
+    bottom: 0;
+    right: 0;
+    clip-path: polygon(100% 100%, 0 100%, 100% 0);
+  }
+
+  .message {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    max-width: 480px;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #4a4a4a;
+  }
+
+  .message p {
+    margin: 0;
+  }
+
+  .closing-message {
+    gap: 2.25rem;
+  }
+
+  .message .section-heading {
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #2c2c2c;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .date-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .date-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .date-rule {
+    flex: 1;
+    height: 1px;
+    max-width: 70px;
+    background: #c8c0b4;
+  }
+
+  .date-text {
+    font-size: 1.4rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #2c2c2c;
+    white-space: nowrap;
+  }
+
+  .lotr-note {
+    max-width: 560px;
+    margin-top: -1.75rem;
+    font-family: 'Homemade Apple', cursive;
+    font-size: 1.1rem;
+    line-height: 1.4;
+    color: #2c2c2c;
+    transform: rotate(0.8deg);
+  }
+
+  .venue {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    width: 100%;
+  }
+
+  .venue-name {
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #2c2c2c;
+  }
+
+  .venue-address {
+    font-size: 0.8rem;
+    color: #999;
+    margin-bottom: 0.5rem;
+  }
+
+  .map-frame {
+    position: relative;
+    width: 100%;
+    max-width: 640px;
+    box-sizing: border-box;
+    margin: 1.5rem 0;
+    line-height: 0;
+    transform: rotate(-1.5deg);
+  }
+
+  .map-frame iframe {
+    filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.14));
+  }
+
+  .cta {
+    position: relative;
+    display: inline-flex;
   }
 
   .save-date-btn {
@@ -91,6 +554,62 @@ const t = useTranslations('es');
   .save-date-btn:hover {
     background-color: #2c2c2c;
     color: #faf9f7;
+  }
+
+  .click-hint {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    margin-left: 1rem;
+    font-family: 'Qwitcher Grypen', cursive;
+    font-size: 1.9rem;
+    color: #c89452;
+    white-space: nowrap;
+    pointer-events: none;
+    animation: hint-float 2.2s ease-in-out infinite;
+  }
+
+  @keyframes hint-float {
+    0%, 100% { transform: translateY(-50%) rotate(14deg); }
+    50%      { transform: translateY(calc(-50% - 6px)) rotate(14deg); }
+  }
+
+  .click-hint-2 {
+    top: auto;
+    left: auto;
+    bottom: -1.75rem;
+    right: calc(100% + 0.75rem);
+    margin-left: 0;
+    font-size: 1.5rem;
+    animation-name: hint-float-2;
+    animation-delay: 0.4s;
+  }
+
+  @keyframes hint-float-2 {
+    0%, 100% { transform: rotate(-8deg); }
+    50%      { transform: translateY(-6px) rotate(-8deg); }
+  }
+
+  @media (max-width: 480px) {
+    .cta {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .click-hint {
+      position: static;
+      display: block;
+      margin: 0.5rem 0 0;
+    }
+
+    .click-hint-2 {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes hint-float {
+      0%, 100% { transform: translateY(0) rotate(14deg); }
+      50%      { transform: translateY(-6px) rotate(14deg); }
+    }
   }
 
   .countdown {
