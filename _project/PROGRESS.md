@@ -1,6 +1,6 @@
 # PROGRESS.md — boda-std
 
-## Status: Live at https://savethedate.sudheim.eu/ — EN and DA pages fully built out; ES still on the old placeholder layout
+## Status: Live at https://savethedate.sudheim.eu/ — EN, DA, and ES pages all fully built out
 
 ---
 
@@ -24,14 +24,13 @@
 - [x] Countdown/event timezone bug fixed — was implicitly local-time per viewer, now pinned to CEST so every guest sees the same real moment
 - [x] Replaced the single generic `save-the-date.ics` with three language-specific files (`public/save-the-date-{en,da,es}.ics`), each with its own translated title/description, including a Bilbo Baggins quote verified against the actual published translation in each language (see `savethedateics.md` for the source drafts)
 - [x] Fixed calendar map/location display — `LOCATION` field restructured (name on its own line) and `GEO` / `X-APPLE-STRUCTURED-LOCATION` added, verified against the user's own device geocoding
+- [x] ES page built out to match EN/DA's photo-album design, with its own tailored letter structure (no "Getting to Madrid"/holiday sections, an extra same-night-return-to-Madrid paragraph, a closing P.S.); decorative text (heading, hints) kept in English across all three languages, matching DA's precedent; hero photo captions had their year removed; "excited heading" switched from a thin script font to bold handwritten Homemade Apple, translated per language
+- [x] Letter copy touch-ups synced from `description.{md,da,es}.md` into all three pages — trimmed greeting, bolded the wedding date in "the ask" paragraph, DA wording/emoji cleanup (dropped the "sund blanding..." sentence, one-word fix in "Our story"); added a shared inline `**bold**` renderer used across EN/DA/ES
 
 ## In Progress
 
-- [ ] Build out ES page to match EN/DA (currently still on the old placeholder layout); `description.es.md` has a draft translation ready to sync in
 - [ ] Final content/QA pass — proofread the letter, confirm venue map + accommodation details are accurate
 
 ## Next
 
-1. Build the ES page (reuse the EN/DA structure, sync `description.es.md`)
-2. Decide on ES decorative-text language (English, like DA, or translated)
-3. Final proofread + cross-device check before sharing the link with guests
+1. Final proofread + cross-device check before sharing the link with guests
