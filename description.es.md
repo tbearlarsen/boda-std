@@ -25,7 +25,7 @@ Estamos deseando compartir y celebrar este día con todos vosotros, porque sin l
 
 ## The ask
 
-La fecha en cuestión es el 5 de junio. Hemos encontrado un lugar precioso en las montañas al norte de Madrid. Por ahora, vuestra única misión es guardar la fecha en el calendario (sabéis que os morís de ganas de pulsar ese botón tan práctico de guardar la fecha), y empezar a calentar motores para la pista de baile. Se aceptan y se valorarán especialmente: sevillanas, reguetón, El Aserejé, coreografías improvisadas y cualquier movimiento que pueda parecerse remotamente a bailar. 💃🕺
+La fecha en cuestión es el **5 de junio 2027**. Hemos encontrado un lugar precioso en las montañas al norte de Madrid. Por ahora, vuestra única misión es guardar la fecha en el calendario (sabéis que os morís de ganas de pulsar ese botón tan práctico de guardar la fecha), y empezar a calentar motores para la pista de baile. Se aceptan y se valorarán especialmente: sevillanas, reguetón, El Aserejé, coreografías improvisadas y cualquier movimiento que pueda parecerse remotamente a bailar. 💃🕺
 
 
 ## 🛏️ Accommodation

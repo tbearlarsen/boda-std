@@ -7,7 +7,7 @@ changes into the page.
 
 ## Greeting
 
-Dear family and friends,
+Dear friends,
 
 ## Our story
 
@@ -26,9 +26,9 @@ We are so excited to share and celebrate this special day with all of you. It si
 
 ## The ask
 
-The date in question is June 5th. We have found an absolutely lovely venue in the mountains north of Madrid. Yes, Madrid. As in Spain. Good weather and fantastic food. We are well aware that travelling to another country to attend a wedding is a big ask. We hope you will channel your inner Bilbo Baggins, and get ready to go on an adventure. We would love to share our day with you.
+The date in question is **June 5th 2027**. We have found an absolutely lovely venue in the mountains north of Madrid. Yes, Madrid. As in Spain. Good weather and fantastic food. We are well aware that travelling to another country to attend a wedding is a big ask. We hope you will channel your inner Bilbo Baggins, and get ready to go on an adventure. We would love to share our day with you.
 
-For now, your only mission is to save the date in your calendar (you know you want to click that convenient save the date button), and start warming up for the dance floor. We are expecting a healthy mix of questionable wedding choreography, classic party moves, enthusiastic singing along, some impressive dad dancing and, of course, whatever moves come naturally once the music starts. 💃🕺
+For now, your only mission is to save the date in your calendar (you know you want to click that convenient save the date button), and start warming up for the dance floor. We are expecting a healthy mix of questionable wedding choreography, classic party moves, enthusiastic singing along, some impressive dad dancing and, of course, whatever moves come naturally once the music starts 💃🕺
 
 ## ✈️ Getting to Madrid
 

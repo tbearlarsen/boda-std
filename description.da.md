@@ -7,17 +7,17 @@ fil, og bed derefter Claude om at synkronisere ændringerne til siden.
 
 ## Greeting
 
-Kæreste familie og venner,
+Kæreste venner,
 
 ## Our story
 
-Efter RIGTIG MANGE års drømmen om dette øjeblik (Lorena) og seriøs bekymring om vores økonomi (Thorbjørn), er tiden endelig kommet... vi skal giftes! 💍
+Efter RIGTIG MANGE års drømmen om dette øjeblik (Lorena) og seriøs bekymring for vores økonomi (Thorbjørn), er tiden endelig kommet... vi skal giftes! 💍
 
 Sidste år, under vores roadtrip rundt i de skønne franske bjerge, og efter en mindre krise omhandlende Lorenas insisteren på at købe den næste bog i den serie hun var i gang med at læse, endte vi med at overnatte i et af de smukkeste steder vi har været. God mad og vin, en fantastisk udsigt, og en solnedgang der ikke er til at glemme, førte alle til det helt igennem magiske øjeblik, der selvfølgelig kaldte på at Thorbjørn skulle på knæ. Og nu, efter hvad der føles som års planlægning, spænding, nervøsitet og et par budgetrelaterede kriser undervejs, nærmer den store dag sig! 🥹❤️
 
 ## The big day
 
-Vi glæder os så utroligt meget til at fejre denne særlige dag med jer alle. Det ville simpelthen ikke være det samme uden alle de mennesker vi elsker.
+Vi glæder os så utroligt meget til at fejre vores bryllup med jer alle. Det ville simpelthen ikke være det samme uden alle de mennesker vi elsker.
 
 **Date:** 5. juni 2027
 
@@ -25,9 +25,9 @@ Vi glæder os så utroligt meget til at fejre denne særlige dag med jer alle. D
 
 ## The ask
 
-Datoen det drejer sig om, er den 5. juni. Vi har fundet et virkelig dejligt sted i bjergene nord for Madrid. Ja, Madrid, som i Spanien. Godt vejr og fantastisk mad. Vi er selvfølgelig udmærket godt klar over at det er meget at bede om at i skal rejse til et andet land for at deltage i vores bryllup. Vi håber dog at i vil holde jeres indre Bilbo Baggins i mende og gøre jer klar til årets eventyr! Vi ville simpelthen elske at dele vores dag med jer.
+Datoen det drejer sig om, er den **5. juni 2027**. Vi har fundet et virkelig dejligt sted i bjergene nord for Madrid. Ja, Madrid, som i Spanien. Godt vejr og fantastisk mad. Vi er selvfølgelig udmærket godt klar over at det er meget at bede om at i skal rejse til et andet land for at deltage i vores bryllup. Vi håber dog at i vil holde jeres indre Bilbo Baggins i mende og gøre jer klar til årets eventyr! Vi ville simpelthen elske at dele vores dag med jer.
 
-Indtil videre er jeres eneste opgave at sætte hak i kalenderen (i ved i har lyst til at trykke på den belejlige Gem Datoen knap), og begynde at varme op til at ramme floor. ***Vi forventer en sund blanding af tvivlsomme bryllupskoreografier, klassiske festmoves, entusiastisk medsang, imponerende fardans og selvfølgelig alt det, der falder naturligt, når musikken går i gang. 💃🕺***
+Indtil videre er jeres eneste opgave at sætte hak i kalenderen (i ved i har lyst til at trykke på den belejlige Gem Datoen knap), og begynde at varme op til at ramme floor 💃🕺
 
 ## ✈️ Hvordan fanden kommer vi frem?
 
@@ -42,7 +42,7 @@ Hvad angår overnatning, er der en landsby 10 minutter fra stedet med masser af 
 
 Hvis I overvejer at blive i Spanien nogle ekstra dage, eller endnu længere, så sig endelig til! Vi vil meget gerne hjælpe jer med at planlægge en skøn spansk ferie når nu i skal til Spanien alligevel.
 
-Uanset om I vil udforske Madrid, tage ud og opleve de smukke landsbyer, tage til kysten, fråde noget spansk mad og vin, eller bare finde de bedste steder at slappe af og nyde solen, hjælper vi jer meget gerne med at planlægge det. 🇪🇸☀️🍷
+Uanset om I vil udforske Madrid, tage ud og opleve de smukke landsbyer, tage til kysten, fråde noget spansk mad og vin, eller bare finde de bedste steder at slappe af og nyde solen, hjælper vi jer meget gerne med at planlægge. 🇪🇸☀️🍷
 
 ## Closing
 

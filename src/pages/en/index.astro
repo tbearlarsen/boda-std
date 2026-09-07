@@ -13,7 +13,7 @@ const excitedHeading = 'Get ready for an adventure... for we are getting married
 // Verbatim from description.md, split on blank lines into paragraphs and
 // on single line breaks within a paragraph. Sectioning/layout TBD.
 const letterIntro: string[][] = [
-  ['Dear family and friends,'],
+  ['Dear friends,'],
   [
     'After OH SO MANY years of dreaming about this moment (Lorena) and seriously worrying about our finances (Thorbjørn), the time has finally come... we’re getting married! 💍',
   ],
@@ -25,10 +25,10 @@ const letterIntro: string[][] = [
 
 const letterBody: string[][] = [
   [
-    'The date in question is June 5th. We have found an absolutely lovely venue in the mountains north of Madrid. Yes, Madrid. As in Spain. Good weather and fantastic food. We are well aware that travelling to another country to attend a wedding is a big ask. We hope you will channel your inner Bilbo Baggins, and get ready to go on an adventure. We would love to share our day with you.',
+    'The date in question is **June 5th 2027**. We have found an absolutely lovely venue in the mountains north of Madrid. Yes, Madrid. As in Spain. Good weather and fantastic food. We are well aware that travelling to another country to attend a wedding is a big ask. We hope you will channel your inner Bilbo Baggins, and get ready to go on an adventure. We would love to share our day with you.',
   ],
   [
-    'For now, your only mission is to save the date in your calendar (you know you want to click that convenient save the date button), and start warming up for the dance floor. We are expecting a healthy mix of questionable wedding choreography, classic party moves, enthusiastic singing along, some impressive dad dancing and, of course, whatever moves come naturally once the music starts. 💃🕺',
+    'For now, your only mission is to save the date in your calendar (you know you want to click that convenient save the date button), and start warming up for the dance floor. We are expecting a healthy mix of questionable wedding choreography, classic party moves, enthusiastic singing along, some impressive dad dancing and, of course, whatever moves come naturally once the music starts 💃🕺',
   ],
   ['✈️ Getting to Madrid'],
   [
@@ -43,7 +43,7 @@ const letterBody: string[][] = [
     'If you are thinking of staying in Spain for a few extra days, or even longer, please let us know! We would absolutely love to help you plan a wonderful Spanish holiday around the wedding.',
   ],
   [
-    'Whether you want to explore Madrid, discover beautiful villages, head to the coast, enjoy some Spanish food and wine, or simply find the best places to relax and enjoy the sunshine, we’ll be very happy to help you plan it. 🇪🇸☀️🍷',
+    'Whether you want to explore Madrid, discover beautiful villages, head to the coast, enjoy some Spanish food and wine, or simply find the best places to relax and enjoy the sunshine, we’ll be very happy to help you plan. 🇪🇸☀️🍷',
   ],
 ];
 
@@ -66,6 +66,16 @@ const sectionHeadings = new Set([
 const venueName = 'Finca Prados Riveros';
 const venueAddress = 'Camino del Palero 11, 28740 Rascafría, Madrid, Spain';
 const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(`${venueName}, ${venueAddress}`)}&output=embed`;
+
+// Minimal inline-markdown support for **bold** emphasis, since description.md uses it.
+// Everything else renders as plain text.
+function renderLine(line: string) {
+  return line.split(/(\*\*[^*]+\*\*)/g).filter(Boolean).map((part) =>
+    part.startsWith('**') && part.endsWith('**')
+      ? { bold: true, text: part.slice(2, -2) }
+      : { bold: false, text: part }
+  );
+}
 
 // Deterministic "deckled paper" edge for the photo — a slightly irregular
 // outline instead of a sharp rectangle. Fixed seed so it's stable across
@@ -169,7 +179,7 @@ const selfieDeckleClipPath = deckleEdge(55);
           {paragraph.map((line, i) => (
             <>
               {i > 0 && <br />}
-              {line}
+              {renderLine(line).map((seg) => (seg.bold ? <strong>{seg.text}</strong> : seg.text))}
             </>
           ))}
         </p>
@@ -226,7 +236,7 @@ const selfieDeckleClipPath = deckleEdge(55);
             {paragraph.map((line, i) => (
               <>
                 {i > 0 && <br />}
-                {line}
+                {renderLine(line).map((seg) => (seg.bold ? <strong>{seg.text}</strong> : seg.text))}
               </>
             ))}
           </p>
@@ -250,7 +260,7 @@ const selfieDeckleClipPath = deckleEdge(55);
           {paragraph.map((line, i) => (
             <>
               {i > 0 && <br />}
-              {line}
+              {renderLine(line).map((seg) => (seg.bold ? <strong>{seg.text}</strong> : seg.text))}
             </>
           ))}
         </p>
