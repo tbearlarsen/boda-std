@@ -36,7 +36,7 @@ Rejser i til Spanien udenlands fra, så har Madrid en stor international lufthav
 
 ## 🛏️ Overnatning
 
-Hvad angår overnatning, er der en landsby 10 minutter fra stedet med masser af hoteller. Det overrasker jer nok ikke, at vi stadig er i planlægningsfasen og stadig i gang med at få styr på det hele, men vi kommer til at tale med de forskellige steder og prøve at forhandle en bedre pris for alle. Så vent med at booke et værelse indtil videre. Vi deler flere detaljer og informationer med jer i løbet af de kommende måneder.
+Hvad angår overnatning, er der en landsby 10 minutter fra stedet med masser af hoteller. ***(FÆRDIGGØR)***
 
 ## 🇪🇸 Hvorfor ikke gøre det til en ferie?
 
