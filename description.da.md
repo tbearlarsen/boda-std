@@ -25,7 +25,7 @@ Vi glæder os så utroligt meget til at fejre vores bryllup med jer alle. Det vi
 
 ## The ask
 
-Datoen det drejer sig om, er den **5. juni 2027**. Vi har fundet et virkelig dejligt sted i bjergene nord for Madrid. Ja, Madrid, som i Spanien. Godt vejr og fantastisk mad. Vi er selvfølgelig udmærket godt klar over at det er meget at bede om at i skal rejse til et andet land for at deltage i vores bryllup. Vi håber dog at i vil holde jeres indre Bilbo Baggins i mende og gøre jer klar til årets eventyr! Vi ville simpelthen elske at dele vores dag med jer.
+Datoen det drejer sig om, er den **5. juni 2027**. Vi har fundet et virkelig dejligt sted i bjergene nord for Madrid (Ja, i kan tro vi skal til Spanien). Godt vejr og fantastisk mad. Vi er selvfølgelig udmærket godt klar over at det er meget at bede om at i skal rejse til et andet land for at deltage i vores bryllup. Vi håber dog at i vil holde jeres indre Bilbo Baggins i mende og gøre jer klar til årets eventyr! Vi ville simpelthen elske at dele vores dag med jer.
 
 Indtil videre er jeres eneste opgave at sætte hak i kalenderen (i ved i har lyst til at trykke på den belejlige Gem Datoen knap), og begynde at varme op til at ramme floor 💃🕺
 
@@ -46,7 +46,7 @@ Uanset om I vil udforske Madrid, tage ud og opleve de smukke landsbyer, tage til
 
 ## Closing
 
-Vi kan simpelthen ikke vente på, at dagen kommer, på at se jer alle sammen se fantastiske ud i Madrids bjerge, og vigtigst af alt, på at fejre sammen med de mennesker, vi elsker. Dette har selvfølgelig været en masse indledende information, men vi skal nok give alle praktiske detaljer og relevant information når vi får sendt de endelige invitationer ud, så have no worries! Hvis i allerede har spørgsmål, er i selvfølgelig mere end velkommen til at kontakte os (Lorena: +45 50250254 / Thorbjørn: +45 40516795).
+Vi håber inderligt i har lyst til at deltage i vores eventyr. Og nu har dette selvfølgelig været en masse indledende information, men vi skal nok give alle praktiske detaljer og relevant information når vi får sendt de endelige invitationer ud, så have no worries! Hvis i allerede har spørgsmål, er i selvfølgelig mere end velkommen til at kontakte os (Lorena: +45 50250254 / Thorbjørn: +45 40516795).
 
 
 Masser af kærlighed og et kæmpe kram kram. Vi kan ikke vente med at se jer! ❤️
