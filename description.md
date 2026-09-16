@@ -23,7 +23,6 @@ We are so excited to share and celebrate this special day with all of you. It si
 
 *(On the site: this is where the "Save the Date" button sits, right under the date. Venue name/address isn't repeated here — it only appears in the map section further down the page.)*
 
-
 ## The ask
 
 The date in question is **June 5th 2027**. We have found an absolutely lovely venue in the mountains north of Madrid (Damn right we're going to Spain). Good weather and fantastic food. We are well aware that travelling to another country to attend a wedding is a big ask. We hope you will channel your inner Bilbo Baggins, and get ready to go on an adventure. We would love to share our day with you.
@@ -36,19 +35,16 @@ For those of you travelling from abroad, Madrid has a large international airpor
 
 ## 🛏️ Accommodation
 
-When it comes to accommodation, there is a village 10 minutes from the venue with plenty of hotels. ***(FINISH)***
+When it comes to accommodation, there is a village 10 minutes from the venue with plenty of hotels. We have some recommendations from the venue that we are working on getting an overview of, but we pass them along to you as soon as possible.
 
 
 ## 🇪🇸 Why not make a holiday out of it?
 
-If you are thinking of staying in Spain for a few extra days, or even longer, please let us know! We would absolutely love to help you plan a wonderful Spanish holiday around the wedding.
-
-Whether you want to explore Madrid, discover beautiful villages, head to the coast, enjoy some Spanish food and wine, or simply find the best places to relax and enjoy the sunshine, we’ll be very happy to help you plan it. 🇪🇸☀️🍷
+If you are thinking of staying in Spain for a few extra days, or even longer, please let us know! We would absolutely love to help you plan a wonderful Spanish holiday around the wedding 🇪🇸☀️🍷
 
 ## Closing
 
 We hope that you will join us in our adventure. And now of course this has been a bunch of preliminary information, but we will provide all the practical details and relevant information once we get the final invitations sent out, so have no worries! If you have any questions already, you are of course most welcome to contact any of us (Lorena: +45 50250254 / Thorbjørn: +45 40516795).
-
 
 Lots of love and a huge hug. We can’t wait to see you! ❤️
 

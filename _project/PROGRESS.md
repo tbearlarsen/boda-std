@@ -26,10 +26,11 @@
 - [x] Fixed calendar map/location display — `LOCATION` field restructured (name on its own line) and `GEO` / `X-APPLE-STRUCTURED-LOCATION` added, verified against the user's own device geocoding
 - [x] ES page built out to match EN/DA's photo-album design, with its own tailored letter structure (no "Getting to Madrid"/holiday sections, an extra same-night-return-to-Madrid paragraph, a closing P.S.); decorative text (heading, hints) kept in English across all three languages, matching DA's precedent; hero photo captions had their year removed; "excited heading" switched from a thin script font to bold handwritten Homemade Apple, translated per language
 - [x] Letter copy touch-ups synced from `description.{md,da,es}.md` into all three pages — trimmed greeting, bolded the wedding date in "the ask" paragraph, DA wording/emoji cleanup (dropped the "sund blanding..." sentence, one-word fix in "Our story"); added a shared inline `**bold**` renderer used across EN/DA/ES
+- [x] Accommodation placeholder filled in (EN/DA) — replaced `(FINISH)`/`(FÆRDIGGØR)` with a note that venue recommendations are being gathered and will be passed along; trimmed the holiday section down to one paragraph (EN/DA); ES "the ask" paragraph now notes the ceremony will be during the day (exact time TBD); DA formal "I" capitalization fixed throughout
 
 ## In Progress
 
-- [ ] Final content/QA pass — proofread the letter, confirm venue map + accommodation details are accurate
+- [ ] Final content/QA pass — proofread the letter; still need actual hotel/accommodation recommendations from the venue once available
 
 ## Next
 
