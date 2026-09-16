@@ -31,7 +31,7 @@ For now, your only mission is to save the date in your calendar (you know you wa
 
 ## ✈️ Getting to Madrid
 
-For those of you travelling from abroad, Madrid has a large international airport, Adolfo Suárez Madrid-Barajas Airport, with plenty of connections from across Europe and beyond. So a humble request for you to start looking at flights.
+For those of you travelling from abroad, Madrid has a large international airport, Adolfo Suárez Madrid-Barajas Airport, with plenty of connections from across Europe and beyond.
 
 ## 🛏️ Accommodation
 

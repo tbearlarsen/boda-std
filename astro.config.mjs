@@ -10,4 +10,9 @@ export default defineConfig({
       prefixDefaultLocale: true,
     },
   },
+  vite: {
+    server: {
+      allowedHosts: ['vscode.sudheim.eu'],
+    },
+  },
 });

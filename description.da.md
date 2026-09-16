@@ -31,7 +31,7 @@ Indtil videre er jeres eneste opgave at sætte hak i kalenderen (I ved I har lys
 
 ## ✈️ Hvordan fanden kommer vi frem?
 
-Rejser I til Spanien udenlands fra, så har Madrid en stor international lufthavn, Adolfo Suárez Madrid-Barajas, der er nem at komme til. Så I får en venlig lille forespørgsel om at begynde at kigge på fly osv.
+Rejser I til Spanien udenlands fra, så har Madrid en stor international lufthavn, Adolfo Suárez Madrid-Barajas, der er nem at komme til.
 
 ## 🛏️ Overnatning
 
