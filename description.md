@@ -35,7 +35,7 @@ For those of you travelling from abroad, Madrid has a large international airpor
 
 ## 🛏️ Accommodation
 
-When it comes to accommodation, there is a village 10 minutes from the venue with plenty of hotels. We have some recommendations from the venue that we are working on getting an overview of, but we pass them along to you as soon as possible.
+When it comes to accommodation, there is a village 10 minutes from the venue with plenty of hotels. We have some recommendations from the venue that we are working on getting an overview of, but we will pass them along to you as soon as possible.
 
 
 ## 🇪🇸 Why not make a holiday out of it?

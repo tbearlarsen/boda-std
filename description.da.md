@@ -25,7 +25,7 @@ Vi glæder os så utroligt meget til at fejre vores bryllup med jer alle. Det vi
 
 ## The ask
 
-Datoen det drejer sig om, er den **5. juni 2027**. Vi har fundet et virkelig dejligt sted i bjergene nord for Madrid (Ja, I kan tro vi skal til Spanien). Godt vejr og fantastisk mad. Vi er selvfølgelig udmærket godt klar over at det er meget at bede om at i skal rejse til et andet land for at deltage i vores bryllup. Vi håber dog at I vil holde jeres indre Bilbo Baggins in mente og gøre jer klar til årets eventyr! Vi ville simpelthen elske at dele vores dag med jer.
+Datoen det drejer sig om, er den **5. juni 2027**. Vi har fundet et virkelig dejligt sted i bjergene nord for Madrid (Ja, I kan tro vi skal til Spanien). Godt vejr og fantastisk mad. Vi er selvfølgelig udmærket godt klar over at det er meget at bede om at I skal rejse til et andet land for at deltage i vores bryllup. Vi håber dog at I vil holde jeres indre Bilbo Baggins in mente og gøre jer klar til årets eventyr! Vi ville simpelthen elske at dele vores dag med jer.
 
 Indtil videre er jeres eneste opgave at sætte hak i kalenderen (I ved I har lyst til at trykke på den belejlige Gem Datoen knap), og begynde at varme op til at ramme floor 💃🕺
 
